@@ -4,6 +4,7 @@ import ContactPage from "./page/ContactPage";
 import ListMeals from "./page/ListMeals";
 import RandomMeal from "./page/RandomMeal";
 import ShowMealPage from "./page/ShowMeal";
+import SearchResultsPage from "./page/SearchResultsPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/meals" element={<ListMeals />} />
         <Route path="/random-meal" element={<RandomMeal />} />
         <Route path="/meal/:id" element={<ShowMealPage />} />
+        <Route path="/search-results" element={<SearchResultsPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -23,6 +23,15 @@ const Header = () => {
             <Link to={"/random-meal"}>Recette aléatoire</Link>
           </li>
         </ul>
+
+        <form action="http://localhost:5173/search-results">
+          <label>
+            Recherche :
+            <input type="text" name="search-query" />
+          </label>
+
+          <input type="submit" />
+        </form>
       </nav>
     </header>
   );
