@@ -3,6 +3,7 @@ import HomePage from "./page/HomePage";
 import ContactPage from "./page/ContactPage";
 import ListMeals from "./page/ListMeals";
 import RandomMeal from "./page/RandomMeal";
+import ShowMealPage from "./page/ShowMeal";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/meals" element={<ListMeals />} />
         <Route path="/random-meal" element={<RandomMeal />} />
+        <Route path="/meal/:id" element={<ShowMealPage />} />
       </Routes>
     </BrowserRouter>
   );
