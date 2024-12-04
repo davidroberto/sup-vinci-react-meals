@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
+import MealCard from "../component/MealCard";
 
 const ListMeals = () => {
   const [meals, setMeals] = useState(null);
@@ -31,12 +32,7 @@ const ListMeals = () => {
 
       <main>
         {meals.map((meal) => {
-          return (
-            <article key={meal.idMeal}>
-              <p>{meal.strMeal}</p>
-              <img width={"300px"} src={meal.strMealThumb} alt={meal.strMeal} />
-            </article>
-          );
+          return <MealCard key={meal.idMeal} meal={meal} />;
         })}
       </main>
 

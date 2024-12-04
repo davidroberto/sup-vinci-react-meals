@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
+import MealCard from "../component/MealCard";
 
 const RandomMeal = () => {
   const [randomMeal, setRandomMeal] = useState(null);
@@ -30,10 +31,7 @@ const RandomMeal = () => {
       <Header />
 
       <main>
-        <article key={randomMeal.idMeal}>
-          <p>{randomMeal.strMeal}</p>
-          <img width={"300px"} src={randomMeal.strMealThumb} alt={randomMeal.strMeal} />
-        </article>
+        <MealCard meal={randomMeal} />;
       </main>
 
       <Footer />
