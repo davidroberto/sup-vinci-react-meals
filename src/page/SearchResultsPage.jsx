@@ -6,6 +6,7 @@ import { useSearchParams } from "react-router-dom";
 
 const SearchResultsPage = () => {
   const [meals, setMeals] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
@@ -17,14 +18,27 @@ const SearchResultsPage = () => {
       })
       .then((data) => {
         setMeals(data.meals);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, [query]);
 
-  if (!meals) {
+  if (isLoading) {
     return (
       <>
         <Header />
         <p>En cours de chargement !</p>
+        <Footer />
+      </>
+    );
+  }
+
+  if (!isLoading && !meals) {
+    return (
+      <>
+        <Header />
+        <p>Pas de recettes !</p>
         <Footer />
       </>
     );
