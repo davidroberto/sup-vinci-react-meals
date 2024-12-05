@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleSubmitSearch = (event) => {
+    event.preventDefault();
+    const query = event.target.query.value;
+
+    navigate("/search-results?query=" + query);
+  };
+
   return (
     <header>
       <h1>Les recettes de Roberto</h1>
@@ -24,10 +33,10 @@ const Header = () => {
           </li>
         </ul>
 
-        <form action="http://localhost:5173/search-results">
+        <form method="get" onSubmit={handleSubmitSearch}>
           <label>
             Recherche :
-            <input type="text" name="search-query" />
+            <input type="search" name="query" />
           </label>
 
           <input type="submit" />
