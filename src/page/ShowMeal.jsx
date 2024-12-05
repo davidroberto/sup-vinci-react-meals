@@ -1,22 +1,11 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../component/Header";
 import Footer from "../component/Footer";
+import useGetMealById from "../hook/useGetMealById";
 
 const ShowMealPage = () => {
   const { id } = useParams();
-
-  const [meal, setMeal] = useState(null);
-
-  useEffect(() => {
-    fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setMeal(data.meals[0]);
-      });
-  }, []);
+  const { meal } = useGetMealById(id);
 
   if (!meal) {
     return (

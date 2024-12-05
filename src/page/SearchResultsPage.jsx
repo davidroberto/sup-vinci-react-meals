@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 import MealCard from "../component/MealCard";
 import { useSearchParams } from "react-router-dom";
+import useGetMeals from "../hook/useGetMeals";
 
 const SearchResultsPage = () => {
-  const [meals, setMeals] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
 
-  useEffect(() => {
-    fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + query)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setMeals(data.meals);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [query]);
+  const { meals, isLoading } = useGetMeals(query);
 
   if (isLoading) {
     return (
