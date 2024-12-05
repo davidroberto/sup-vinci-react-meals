@@ -4,8 +4,9 @@ import Header from "../component/Header";
 import Footer from "../component/Footer";
 
 const ShowMealPage = () => {
-  const [meal, setMeal] = useState(null);
   const { id } = useParams();
+
+  const [meal, setMeal] = useState(null);
 
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id)

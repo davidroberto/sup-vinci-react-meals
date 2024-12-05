@@ -1,20 +1,10 @@
-import { useEffect, useState } from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 import MealCard from "../component/MealCard";
+import useGetMeals from "../hook/useGetMeals";
 
 const ListMeals = () => {
-  const [meals, setMeals] = useState(null);
-
-  useEffect(() => {
-    fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setMeals(data.meals);
-      });
-  }, []);
+  const { meals } = useGetMeals();
 
   if (!meals) {
     return (
