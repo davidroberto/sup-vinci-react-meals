@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import "./Header.scss";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -11,11 +12,11 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className="header">
       <h1>Les recettes de Roberto</h1>
 
       <nav>
-        <ul>
+        <ul className="header-list">
           <li>
             <Link to={"/"}>Accueil</Link>
           </li>

@@ -1,23 +1,26 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "./page/HomePage";
-import ContactPage from "./page/ContactPage";
-import ListMeals from "./page/ListMeals";
-import RandomMeal from "./page/RandomMeal";
-import ShowMealPage from "./page/ShowMeal";
-import SearchResultsPage from "./page/SearchResultsPage";
+import HomePage from "./common/page/HomePage";
+import ContactPage from "./common/page/ContactPage";
+import { MealsProvider } from "./meals/context/MealsContext";
+import ListMeals from "./meals/page/ListMeals";
+import RandomMeal from "./meals/page/RandomMeal";
+import ShowMealPage from "./meals/page/ShowMeal";
+import SearchResultsPage from "./meals/page/SearchResultsPage";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/meals" element={<ListMeals />} />
-        <Route path="/random-meal" element={<RandomMeal />} />
-        <Route path="/meal/:id" element={<ShowMealPage />} />
-        <Route path="/search-results" element={<SearchResultsPage />} />
-      </Routes>
-    </BrowserRouter>
+    <MealsProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/meals" element={<ListMeals />} />
+          <Route path="/random-meal" element={<RandomMeal />} />
+          <Route path="/meal/:id" element={<ShowMealPage />} />
+          <Route path="/search-results" element={<SearchResultsPage />} />
+        </Routes>
+      </BrowserRouter>
+    </MealsProvider>
   );
 }
 

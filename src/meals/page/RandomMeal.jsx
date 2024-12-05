@@ -1,7 +1,7 @@
-import Footer from "../component/Footer";
-import Header from "../component/Header";
-import MealCard from "../component/MealCard";
+import Header from "../../common/component/Header/Header";
+import Footer from "../../common/component/Footer";
 import useGetRandomMeal from "../hook/useGetRandomMeal";
+import MealCard from "../component/MealCard";
 
 const RandomMeal = () => {
   const { randomMeal } = useGetRandomMeal();

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import Header from "../component/Header";
-import Footer from "../component/Footer";
+import Header from "../../common/component/Header/Header";
+import Footer from "../../common/component/Footer";
 import useGetMealById from "../hook/useGetMealById";
 
 const ShowMealPage = () => {

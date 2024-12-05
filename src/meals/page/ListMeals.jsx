@@ -1,5 +1,5 @@
-import Footer from "../component/Footer";
-import Header from "../component/Header";
+import Footer from "../../common/component/Footer";
+import Header from "../../common/component/Header/Header";
 import MealCard from "../component/MealCard";
 import useGetMeals from "../hook/useGetMeals";
 

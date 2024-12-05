@@ -1,8 +1,8 @@
-import Footer from "../component/Footer";
-import Header from "../component/Header";
-import MealCard from "../component/MealCard";
+import Header from "../../common/component/Header/Header";
+import Footer from "../../common/component/Footer";
 import { useSearchParams } from "react-router-dom";
 import useGetMeals from "../hook/useGetMeals";
+import MealCard from "../component/MealCard";
 
 const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
